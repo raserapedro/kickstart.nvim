@@ -7,4 +7,6 @@ return {
   'rose-pine/neovim',
   'tpope/vim-fugitive',
   'mbbill/undotree',
+  'Exafunction/codeium.vim',
+  'tpope/vim-surround',
 }
