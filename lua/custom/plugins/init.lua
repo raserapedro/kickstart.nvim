@@ -3,10 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  'rebelot/kanagawa.nvim',
-  'rose-pine/neovim',
-  'tpope/vim-fugitive',
   'mbbill/undotree',
-  'Exafunction/codeium.vim',
-  'tpope/vim-surround',
+  'nvim-treesitter/nvim-treesitter-context',
+  'ray-x/lsp_signature.nvim',
+  -- 'Exafunction/codeium.vim',
 }
