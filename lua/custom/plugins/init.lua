@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  -- 'Exafunction/codeium.vim',
   'mbbill/undotree',
   'nvim-treesitter/nvim-treesitter-context',
   'ray-x/lsp_signature.nvim',
@@ -15,5 +16,5 @@ return {
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
-  -- 'Exafunction/codeium.vim',
+  'ruifm/gitlinker.nvim',
 }
