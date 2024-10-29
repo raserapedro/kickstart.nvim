@@ -25,3 +25,6 @@ vim.keymap.set(
   '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".copy_to_clipboard})<cr>',
   { desc = '[G]itlinker: Copy to clipboard' }
 )
+vim.keymap.set('n', '<leader>tt', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true, desc = '[T]oggle LSP Virtual [T]ext' })

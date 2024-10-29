@@ -18,4 +18,13 @@ return {
   },
   'ruifm/gitlinker.nvim',
   'sQVe/sort.nvim',
+  {
+    'dgagn/diagflow.nvim',
+    event = 'LspAttach',
+    opts = {
+      show_sign = true,
+      show_borders = true,
+      scope = 'line',
+    },
+  },
 }
