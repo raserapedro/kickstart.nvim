@@ -9,7 +9,7 @@ return {
   'ray-x/lsp_signature.nvim',
   {
     'stevearc/oil.nvim',
-    ---@module 'oil'
+    --@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
     -- Optional dependencies
@@ -33,47 +33,64 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim', 'nvim-tree/nvim-web-devicons' },
   },
   {
-    'frankroeder/parrot.nvim',
-    dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim' },
-    -- optionally include "rcarriga/nvim-notify" for beautiful notifications
-    config = function()
-      require('parrot').setup {
-        -- Providers must be explicitly added to make them available.
-        providers = {
-          anthropic = {
-            api_key = os.getenv 'ANTHROPIC_API_KEY',
-          },
-          -- gemini = {
-          --   api_key = os.getenv 'GEMINI_API_KEY',
-          -- },
-          -- groq = {
-          --   api_key = os.getenv 'GROQ_API_KEY',
-          -- },
-          -- mistral = {
-          --   api_key = os.getenv 'MISTRAL_API_KEY',
-          -- },
-          -- pplx = {
-          --   api_key = os.getenv 'PERPLEXITY_API_KEY',
-          -- },
-          -- provide an empty list to make provider available (no API key required)
-          -- ollama = {},
-          -- openai = {
-          --   api_key = os.getenv 'OPENAI_API_KEY',
-          -- },
-          -- github = {
-          --   api_key = os.getenv 'GITHUB_TOKEN',
-          -- },
-          -- nvidia = {
-          --   api_key = os.getenv 'NVIDIA_API_KEY',
-          -- },
-          -- xai = {
-          --   api_key = os.getenv 'XAI_API_KEY',
-          -- },
-        },
-      }
-    end,
+    'sindrets/diffview.nvim',
   },
   {
-    'sindrets/diffview.nvim',
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    opts = {
+      -- add any opts here
+      ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+      provider = 'claude', -- Recommend using Claude
+      auto_suggestions_provider = 'claude', -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+      claude = {
+        endpoint = 'https://api.anthropic.com',
+        model = 'claude-3-5-haiku-latest',
+        temperature = 0,
+        max_tokens = 4096,
+      },
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = 'make',
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      --- The below dependencies are optional,
+      'hrsh7th/nvim-cmp', -- autocompletion for avante commands and mentions
+      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+      'zbirenbaum/copilot.lua', -- for providers='copilot'
+      {
+        -- support for image pasting
+        'HakonHarnes/img-clip.nvim',
+        event = 'VeryLazy',
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { 'markdown', 'Avante' },
+        },
+        ft = { 'markdown', 'Avante' },
+      },
+    },
+  },
+  {
+    'github/copilot.vim',
   },
 }
