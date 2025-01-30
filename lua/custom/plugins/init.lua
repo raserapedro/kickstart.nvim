@@ -36,6 +36,11 @@ return {
     'sindrets/diffview.nvim',
   },
   {
+    'olimorris/persisted.nvim',
+    lazy = false, -- make sure the plugin is always loaded at startup
+    config = true,
+  },
+  {
     'yetone/avante.nvim',
     event = 'VeryLazy',
     lazy = false,
@@ -90,7 +95,13 @@ return {
       },
     },
   },
+  -- {
+  --   'github/copilot.vim',
+  -- },
   {
-    'github/copilot.vim',
+    'supermaven-inc/supermaven-nvim',
+    config = function()
+      require('supermaven-nvim').setup {}
+    end,
   },
 }
