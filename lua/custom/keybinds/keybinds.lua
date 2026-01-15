@@ -1,0 +1,9 @@
+return {
+  -- Files
+  vim.keymap.set('n', '<leader>-', '<CMD>Oil<CR>', { desc = 'File Explorer' }),
+  -- Plugins
+  vim.keymap.set('n', '<leader>pl', '<CMD>Lazy<CR>', { desc = '[P]lugins [L]azy' }),
+  -- Buffers
+  vim.keymap.set('n', '<leader>bv', '<CMD>vsplit<CR>', { desc = '[B]uffers [V]ertical split' }),
+  vim.keymap.set('n', '<leader>bh', '<CMD>split<CR>', { desc = '[B]uffers [H]orizontal split' }),
+}
