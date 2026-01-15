@@ -6,4 +6,5 @@ return {
   -- Buffers
   vim.keymap.set('n', '<leader>bv', '<CMD>vsplit<CR>', { desc = '[B]uffers [V]ertical split' }),
   vim.keymap.set('n', '<leader>bh', '<CMD>split<CR>', { desc = '[B]uffers [H]orizontal split' }),
+  vim.keymap.set('n', '<leader>rn', '<CMD>set rnu!<CR>', { desc = 'Toggle [R]elative [N]umbers' }),
 }
